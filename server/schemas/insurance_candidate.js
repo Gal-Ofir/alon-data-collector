@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const enums = require('../data/candidate_enums');
 
 module.exports = new mongoose.Schema({
     age: Number,
-    cityOfResidence: String,
+    area: String,
     maritalStatus: {
         type: String,
-        enum: ["Single", "Married", "Divorced"]
+        enum: enums.maritalStatus.map(status => status.value)
     },
     numOfChildren: Number,
     children: [{age: Number}],
@@ -14,7 +15,6 @@ module.exports = new mongoose.Schema({
         {
             exists: Boolean,
             age: Number,
-            cityOfResidence: String,
             smoking: Boolean,
             profession: String,
             activeIncome: Number,
@@ -24,5 +24,10 @@ module.exports = new mongoose.Schema({
     profession: String,
     activeIncome: Number,
     passiveIncome: Number,
-    totalHouseHoldIncome: Number
+    totalHouseHoldIncome: Number,
+    lifeInsurance: Boolean,
+    healthInsurance: Boolean,
+    illnessInsurance: Boolean,
+    mortgageInsurance: Boolean,
+    workInsurance: Boolean
 });
