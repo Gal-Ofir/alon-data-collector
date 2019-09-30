@@ -90,6 +90,11 @@ const getRandomCandidate = () => {
     const passiveIncome = getRandomPassiveIncome();
     const totalHouseHoldIncome = activeIncome + passiveIncome + (spouse.exists ? spouse.passiveIncome + spouse.activeIncome : 0);
     const children = getRandomChildren(numOfChildren);
+    const lifeInsurance = false;
+    const healthInsurance = false;
+    const illnessInsurance = false;
+    const mortgageInsurance = false;
+    const workInsurance = false;
     return {
         age,
         area,
@@ -101,7 +106,12 @@ const getRandomCandidate = () => {
         spouse,
         activeIncome,
         passiveIncome,
-        totalHouseHoldIncome
+        totalHouseHoldIncome,
+        lifeInsurance,
+        healthInsurance,
+        illnessInsurance,
+        mortgageInsurance,
+        workInsurance
     }
 };
 

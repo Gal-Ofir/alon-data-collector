@@ -37,8 +37,11 @@ class ChartTable extends React.Component {
                 <td name="spousePassiveIncome" data={candidate.spouse.exists ? candidate.spouse.passiveIncome : null}>{candidate.spouse.exists ? candidate.spouse.passiveIncome : "---"}</td>
                 <td name="spouseSmoking" data={candidate.spouse.exists ? candidate.spouse.smoking.toString() : null}>{candidate.spouse.exists ? candidate.spouse.smoking.toString() : "---"}</td>
                 <td name="totalHouseHoldIncome" data={candidate.totalHouseHoldIncome}>{candidate.totalHouseHoldIncome}</td>
-
-
+                <td name="lifeInsurance" data={candidate.lifeInsurance.toString()} onClick={() => this.props.handleOnInsuranceClicked("lifeInsurance", i)} style={{backgroundColor: candidate.lifeInsurance ? "green" : "red"}}/>
+                <td name="healthInsurance" data={candidate.healthInsurance.toString()} onClick={() => this.props.handleOnInsuranceClicked("healthInsurance", i)} style={{backgroundColor: candidate.healthInsurance ? "green" : "red"}}/>
+                <td name="illnessInsurance" data={candidate.illnessInsurance.toString()} onClick={() => this.props.handleOnInsuranceClicked("illnessInsurance", i)} style={{backgroundColor: candidate.illnessInsurance ? "green" : "red"}}/>
+                <td name="mortgageInsurance" data={candidate.mortgageInsurance.toString()} onClick={() => this.props.handleOnInsuranceClicked("mortgageInsurance", i)} style={{backgroundColor: candidate.mortgageInsurance ? "green" : "red"}}/>
+                <td name="workInsurance" data={candidate.workInsurance.toString()} onClick={() => this.props.handleOnInsuranceClicked("workInsurance", i)} style={{backgroundColor: candidate.workInsurance ? "green" : "red"}}/>
             </tr>;
         });
     };
