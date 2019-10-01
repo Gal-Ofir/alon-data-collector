@@ -40,7 +40,6 @@ class Chart extends React.Component {
     handleSaveCandidates = () => {
 
         saveCandidates(this.state.randomCandidates).then((response) => {
-            console.log(response);
             alert(response.data.error ? 'Error: ' + response.data.error : 'Saved candidates');
             return response.data.error;
         })
@@ -61,6 +60,15 @@ class Chart extends React.Component {
         }, () => {
             this.getRandCandidates();
         })
+    };
+
+    handleResetClicked = () => {
+        const randomCandidates = this.state.randomCandidates.map(candidate => {
+            const insuranceKeys = Object.keys(candidate).filter(key => key.includes('Insurance'));
+            insuranceKeys.forEach(key => candidate[key] = false);
+            return candidate;
+        });
+        this.setState({randomCandidates});
     };
 
     componentDidMount() {
@@ -84,7 +92,7 @@ class Chart extends React.Component {
                             <Button variant="primary" onClick={this.handleSaveCandidates}>
                                 Save
                             </Button>
-                            <Button variant="secondary" onClick={this.handleSaveCandidates}>
+                            <Button variant="secondary" onClick={this.handleResetClicked}>
                                 Reset
                             </Button>
                             <Form inline>

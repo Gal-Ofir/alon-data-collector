@@ -14,7 +14,6 @@ const getAll = (req, res) => {
 const getRandomCandidates = (req, res) => {
     const count = req.params.count;
     const randoms = generateRandomCandidates(count);
-    console.log(randoms);
     res.json(generateRandomCandidates(count));
 
 };
