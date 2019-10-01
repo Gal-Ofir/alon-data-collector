@@ -17,6 +17,7 @@
     "react-scripts": "3.1.2"
   },
   "scripts": {
+    "heroku-postbuild": "node server/server.js",
     "backend": "nodemon server/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
